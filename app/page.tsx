@@ -97,7 +97,7 @@ export default function Home() {
                 <div>
                   <h4 className="text-lg font-medium">Restaurantmedarbeider</h4>
                   <p className="text-sm font-bold text-muted-foreground">
-                    MCDONALD'S FOKSERØD AVD 6 (09.04.2022 - 13.12.2022)
+                    MCDONALDS FOKSERØD AVD 6 (09.04.2022 - 13.12.2022)
                   </p>
                   <p className="text-base">
                     Jobbet som restaurantmedarbeider der jeg lagde mat og
