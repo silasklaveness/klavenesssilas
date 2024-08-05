@@ -4,13 +4,14 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import { FaChevronDown, FaChevronRight, FaChevronUp } from "react-icons/fa";
 
 export default function Component() {
   const [experienceExpanded, setExperienceExpanded] = useState(false);
   const [educationExpanded, setEducationExpanded] = useState(false);
   const [skillsExpanded, setSkillsExpanded] = useState(false);
   const [certificatesExpanded, setCertificatesExpanded] = useState(false);
+  const [readMore, setReadMore] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -228,7 +229,7 @@ export default function Component() {
               </div>
               <div>
                 <h4 className="text-lg font-medium md:text-xl lg:text-2xl">
-                  Truckførerlappen (T1-T4)
+                  Truckførerlappen (T1, T2, T4)
                 </h4>
               </div>
             </div>
@@ -251,26 +252,46 @@ export default function Component() {
               programmering, matlaging, sosialt samvær og fotball. Jeg har
               førerkort for automatgir og tilgang til egen bil.
             </p>
-            <p className="text-base md:text-lg lg:text-xl">
-              Jeg er kjent for å være positivt innstilt, presis, ansvarsfull og
-              villig til å lære og tilpasse meg nye situasjoner. Med høy
-              arbeidsmoral og gode sosiale antenner, evner jeg å yte under
-              stressende situasjoner og ta initiativ.
-            </p>
-            <p className="text-base md:text-lg lg:text-xl">
-              Jeg er alltid ivrig etter å lære nye ting og ta på meg nye
-              utfordringer for å fremme min karriere. Mine erfaringer har lært
-              meg viktigheten av ansvar, nøyaktighet og evnen til å jobbe både
-              selvstendig og som en del av et team. Jeg er motivert og klar til
-              å bidra med mine ferdigheter og egenskaper i en ny og spennende
-              rolle.
-            </p>
+            {!readMore && (
+              <Button
+                variant="link"
+                className="p-0 text-left text-blue-500"
+                onClick={() => setReadMore(true)}
+              >
+                Les mer <FaChevronRight className="ml-2 mr-2 mt-1 h-2 w-2" />
+              </Button>
+            )}
+            {readMore && (
+              <div className="text-base md:text-lg lg:text-xl">
+                <p>
+                  Jeg er kjent for å være positivt innstilt, presis, ansvarsfull
+                  og villig til å lære og tilpasse meg nye situasjoner. Med høy
+                  arbeidsmoral og gode sosiale antenner, evner jeg å yte under
+                  stressende situasjoner og ta initiativ.
+                </p>
+                <p>
+                  Jeg er alltid ivrig etter å lære nye ting og ta på meg nye
+                  utfordringer for å fremme min karriere. Mine erfaringer har
+                  lært meg viktigheten av ansvar, nøyaktighet og evnen til å
+                  jobbe både selvstendig og som en del av et team. Jeg er
+                  motivert og klar til å bidra med mine ferdigheter og
+                  egenskaper i en ny og spennende rolle.
+                </p>
+                <Button
+                  variant="link"
+                  className="p-0 text-left text-blue-500"
+                  onClick={() => setReadMore(false)}
+                >
+                  Lukk <FaChevronUp className="ml-2 mr-2 h-2 w-2" />
+                </Button>
+              </div>
+            )}
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
             <CardTitle className="text-xl md:text-2xl lg:text-3xl">
-              Languages
+              Språkferdigheter
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
